@@ -7,7 +7,6 @@ import MyComponent from './example/Myconponent';
  * JSX
  */
 
-
 const App = () => {
   // JSX
   return (
