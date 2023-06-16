@@ -5,7 +5,7 @@ class MyComponent extends React.Component {
 
     // key:value
     state = {
-        name: 'Hac',
+        name: '',
         age: '21'
     }
 
@@ -24,12 +24,11 @@ class MyComponent extends React.Component {
     }
 
     handleClickButton = () => {
-        console.log('hit the button')
         alert('Click me')
     }
 
     render() {
-
+        console.log(">>> call render: ", this.state)
         return (
             <>
                 <div className='first'>
