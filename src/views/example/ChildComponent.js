@@ -20,7 +20,8 @@ class ChildComponent extends React.Component {
         console.log('>>> check conditional: ', check)
         return (
             <>
-                {showJob === false ?
+                {
+                showJob === false ?
                     <div>
                         <button onClick={() => this.handleShowHide()}>Show</button>
                     </div>
@@ -31,7 +32,7 @@ class ChildComponent extends React.Component {
                                 arrJobs.map((item, index) => {
                                     return (
                                         <div key={item.id}>
-                                            {item.title} - {item.salary}
+                                            {item.title} - {item.salary}$
                                         </div>
                                     )
                                 })
