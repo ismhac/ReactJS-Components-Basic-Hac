@@ -1,7 +1,8 @@
 
 import React from "react";
-import { withRouter } from "react-router"
+import { withRouter } from "react-router";
 import Color from "./HOC/Color";
+import hac from '../../assets/images/hac.png';
 
 class Home extends React.Component {
 
@@ -17,8 +18,13 @@ class Home extends React.Component {
 
         console.log(">>> check props: ", this.props)
         return (
+            <>
+                <div>Hello World from Hac</div>
+                <div>
+                    <img src={hac} />
+                </div>
+            </>
 
-            <div>Hello World from Hac</div>
 
         )
     }
