@@ -17,6 +17,7 @@ import {
   Route,
   Link
 } from "react-router-dom";
+import DetailUser from './Users/DetailUser';
 
 /**
  * 2 components: class component / function component (function, arrow)
@@ -45,8 +46,12 @@ const App = () => {
             <Route path="/about">
               <MyComponent />
             </Route>
-            <Route path="/user">
+            <Route path="/user" exact>
               <ListUser />
+            </Route>
+
+            <Route path="/user/:id">
+              <DetailUser />
             </Route>
           </Switch>
 
