@@ -21,7 +21,7 @@ class Home extends React.Component {
             <>
                 <div>Hello World from Hac</div>
                 <div>
-                    <img src={hac} />
+                    <img src={hac} style={{ width: '200px', height: '200px', marginTop: '20px' }} />
                 </div>
             </>
 
