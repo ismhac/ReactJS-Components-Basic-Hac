@@ -4,6 +4,8 @@ import { withRouter } from "react-router";
 import Color from "./HOC/Color";
 import hac from '../../assets/images/hac.png';
 
+import { connect } from "react-redux";
+
 class Home extends React.Component {
 
     componentDidMount() {
@@ -16,7 +18,7 @@ class Home extends React.Component {
 
     render() {
 
-        console.log(">>> check props: ", this.props)
+        console.log(">>> check props redux: ", this.props.dataRedux)
         return (
             <>
                 <div>Hello World from Hac</div>
@@ -32,4 +34,11 @@ class Home extends React.Component {
 }
 
 // export default withRouter(Home);
-export default Color(Home);
+
+const mapStateToProps = (state) => {
+    return {
+        dataRedux: state.users
+    };
+}
+
+export default connect(mapStateToProps)(Color(Home));

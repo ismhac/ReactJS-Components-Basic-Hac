@@ -4,7 +4,8 @@
 const initState = {
     users: [
         { id: 1, name: 'Hac' },
-        { id: 2, name: 'tighostle' }
+        { id: 2, name: 'tighostle' },
+        { id: 3, name: 'tighostle with hac' },
     ]
 }
 
