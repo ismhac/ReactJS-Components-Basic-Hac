@@ -16,18 +16,41 @@ class Home extends React.Component {
 
     // HOC: higher order component
 
+    handleDeleteUser = (user) => {
+        console.log('>>> check user delete: ', user);
+        this.props.deleteUserRedux(user);
+
+    }
+
+    handleCreateUser = () => {
+        this.props.addUserRedux();
+    }
+
     render() {
 
         console.log(">>> check props redux: ", this.props.dataRedux)
+        let ListUsers = this.props.dataRedux;
         return (
             <>
                 <div>Hello World from Hac</div>
                 <div>
                     <img src={hac} style={{ width: '200px', height: '200px', marginTop: '20px' }} />
                 </div>
+                <div>
+                    {ListUsers && ListUsers.length > 0 &&
+                        ListUsers.map((item, index) => {
+                            return (
+                                <div key={item.id}>
+                                    {index + 1} - {item.name}
+                                    &nbsp;<span onClick={() => this.handleDeleteUser(item)}>x</span>
+                                </div>
+                            )
+                        })
+                    }
+
+                    <button onClick={() => this.handleCreateUser()}>Add new</button>
+                </div>
             </>
-
-
         )
     }
 
@@ -41,4 +64,11 @@ const mapStateToProps = (state) => {
     };
 }
 
-export default connect(mapStateToProps)(Color(Home));
+const mapDispatchToProps = (dispatch) => {
+    return {
+        deleteUserRedux: (userDelete) => dispatch({ type: 'DELETE_USER', payload: userDelete }),
+        addUserRedux: () => dispatch({ type: 'CREATE_USER' }),
+    }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Color(Home));
